@@ -19,21 +19,6 @@ function D3() {
     }
   };
 
-  // const getData = async () => {
-  //   const res = await fetch(url);
-  //   const resData = await res.json();
-
-  //   let r = [];
-  //   resData.map((d) => {
-  //     for (const [key, value] of Object.entries(d)) {
-  //       if (key === `${valuee}`) {
-  //         return r.push(value);
-  //       }
-  //     }
-  //     return r;
-  //   });
-  //   setData(r);
-  // };
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(url);
