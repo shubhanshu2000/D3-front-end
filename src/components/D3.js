@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Chart from "./Chart";
 
-// const url = "http://localhost:8000/";
 const url = "https://dd-33.herokuapp.com/";
 
 function D3() {
@@ -20,22 +19,37 @@ function D3() {
     }
   };
 
-  const getData = async () => {
-    const res = await fetch(url);
-    const resData = await res.json();
+  // const getData = async () => {
+  //   const res = await fetch(url);
+  //   const resData = await res.json();
 
-    let r = [];
-    resData.map((d) => {
-      for (const [key, value] of Object.entries(d)) {
-        if (key === `${valuee}`) {
-          return r.push(value);
-        }
-      }
-      return r;
-    });
-    setData(r);
-  };
+  //   let r = [];
+  //   resData.map((d) => {
+  //     for (const [key, value] of Object.entries(d)) {
+  //       if (key === `${valuee}`) {
+  //         return r.push(value);
+  //       }
+  //     }
+  //     return r;
+  //   });
+  //   setData(r);
+  // };
   useEffect(() => {
+    const getData = async () => {
+      const res = await fetch(url);
+      const resData = await res.json();
+
+      let r = [];
+      resData.map((d) => {
+        for (const [key, value] of Object.entries(d)) {
+          if (key === `${valuee}`) {
+            return r.push(value);
+          }
+        }
+        return r;
+      });
+      setData(r);
+    };
     getData();
   }, [valuee]);
 
